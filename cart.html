@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="shopping.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="image/dragon.png" alt="Logo" class="logo" style="width: 80px; height: 50px;"></a>
+        <ul id="navbar">
+            <li><a href="shopping.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li id="user-nav-item"><a href="signup.html">Sign Up / Login</a></li>
+            <li id="lg-bag"><a class="active" href="cart.html"><i class="fa fa-shopping-cart"></i></a></li>
+        </ul>
+    </section>
+
+    <section id="cart-section" class="section-p1">
+        <h2>Your Shopping Cart</h2>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Cart items will be added here dynamically -->
+            </tbody>
+        </table>
+        <h3>Total: $<span id="cart-total">0.00</span></h3>
+        <button id="clear-cart" class="normal" style="background-color: #088178; color: white; border-radius: 4px; padding: 15px 30px; font-weight: 700; border: none; cursor: pointer; transition: background-color 0.3s ease;">Clear Cart</button>
+        <button id="checkout" class="normal" style="background-color: #088178; color: white; border-radius: 4px; padding: 15px 30px; font-weight: 700; border: none; cursor: pointer; transition: background-color 0.3s ease;">Check Out</button>
+    </section>
+   
+    </section>
+        <footer class="section-p1">
+            <div class="col">
+                <img src="dragon.png" alt="">
+                <h4>Contact</h4>
+                <p><strong>Address: </strong>742 Evergreen Terrace, Springfield, USA</p>
+                <p><strong>Phone: </strong>+1 (123) 456-7890</p>
+                <p><strong>Hours: </strong>Mon-Fri: 9am - 6pm</p> 
+                <div class="follow">
+                    <h4>Follow Us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-pinterest-p"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About Us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact Us</a>
+            </div>
+        
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
+        
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play</p>
+                <div class="row" style="display: flex; justify-content: center; align-items: center;">
+                    <a href="https://www.apple.com/app-store/" target="_blank">
+                        <img src="image/app.jpg" alt="App Store" style="margin-right: 10px;">
+                    </a>
+                    <a href="https://play.google.com/" target="_blank">
+                        <img src="image/play.jpg" alt="Google Play">
+                    </a>
+                </div>
+                <p>Secured Payment Gateways</p>
+                <img src="image/pay (1).png" alt="Payment Methods">
+            </div>
+        
+            <div class="copyright">
+                <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    
+                function updateCart() {
+                    const cartTable = document.getElementById("cart-items");
+                    const cartTotal = document.getElementById("cart-total");
+                    cartTable.innerHTML = "";
+                    let totalAmount = 0;
+    
+                    cartItems.forEach((item, index) => {
+                        let row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td><img src="${item.image}" width="70"></td>
+                            <td>${item.name}</td>
+                            <td>${item.price}</td>
+                <td><input type="number" value="${item.quantity}" min="1" class="quantity" data-index="${index}"></td>
+                <td class="subtotal">${item.price}</td>
+                            <td><button class="remove-btn" data-index="${index}">Remove</button></td>
+                        `;
+                        cartTable.appendChild(row);
+                        totalAmount += parseFloat(item.price.replace("$", ""));
+                    });
+    
+                    cartTotal.textContent = totalAmount.toFixed(2);
+
+                    // Remove item event listener
+                    document.querySelectorAll(".remove-btn").forEach((btn) => {
+                        btn.addEventListener("click", function () {
+                            const index = btn.getAttribute("data-index");
+                            cartItems.splice(index, 1);
+                            localStorage.setItem("cart", JSON.stringify(cartItems));
+                            updateCart();
+                        });
+                    });
+
+                    // Quantity change event listener
+                    document.querySelectorAll(".quantity").forEach((input) => {
+                        input.addEventListener("change", function () {
+                            const index = this.getAttribute("data-index");
+                            let newQuantity = parseInt(this.value);
+                            if (isNaN(newQuantity) || newQuantity < 1) {
+                                newQuantity = 1;
+                                this.value = 1;
+                            }
+                            cartItems[index].quantity = newQuantity;
+                            localStorage.setItem("cart", JSON.stringify(cartItems));
+                            updateCart();
+                        });
+                    });
+                }
+    
+                updateCart();
+    
+                // Clear Cart
+                document.getElementById("clear-cart").addEventListener("click", function () {
+                    localStorage.removeItem("cart");
+                    cartItems = [];
+                    updateCart();
+                });
+
+                // Check Out button click handler
+                document.getElementById("checkout").addEventListener("click", function () {
+                    if (cartItems.length === 0) {
+                        alert("Your cart is empty. Please add items before checking out.");
+                        return;
+                    }
+                // For now, just alert and clear cart to simulate checkout
+                alert("Thank you for your order! Proceeding to checkout.");
+                // Do NOT clear cart here to preserve data for checkout and payment pages
+                // localStorage.removeItem("cart");
+                // cartItems = [];
+                // updateCart();
+            // You can redirect to a checkout page here if available
+            window.location.href = "checkout.html";
+            });
+            });
+        </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        if (!loggedInUser) {
+            window.location.href = "signup.html";
+        }
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        const userNavItem = document.getElementById("user-nav-item");
+
+        if (loggedInUser) {
+            userNavItem.innerHTML = `
+                <span>Welcome, ${loggedInUser}</span> | <a href="#" id="logout-link">Logout</a>
+            `;
+
+            document.getElementById("logout-link").addEventListener("click", function (e) {
+                e.preventDefault();
+                localStorage.removeItem("loggedInUser");
+                window.location.href = "signup.html";
+            });
+        } else {
+            userNavItem.innerHTML = `<a href="signup.html">Sign Up / Login</a>`;
+        }
+    });
+</script>
+</body>
+</html>

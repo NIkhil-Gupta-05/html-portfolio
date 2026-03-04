@@ -1,0 +1,268 @@
+```javascript
+// Add event listeners to small images in a loop
+var smallimg = document.getElementsByClassName("small-img");
+for (var i = 0; i < smallimg.length; i++) {
+    smallimg[i].addEventListener("click", function() {
+        MainImg.src = this.src;
+    });
+}
+```<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Site</title>
+    <link rel="stylesheet" href="shopping.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="image/dragon.png" alt="Logo" class="logo" style="width: 80px; height: 50px;"></a>
+        <ul id="navbar">
+            <li><a href="shopping.html">Home</a></li>
+            <li><a  class="active"  href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li id="user-nav-item"><a href="signup.html">Sign Up / Login</a></li>
+<li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart"></i><span id="cart-count" class="cart-count">0</span></a></li>
+            <a href="#" id="close"><i class="fa fa-times"></i></a>
+        </ul>
+        <div id="mobile">
+            <a href="cart.html"class="add-to-cart" data-name="Mens shoes" data-price="$70.00" data-image="image/shoe (1).jpg"><i class="fa fa-shopping-cart"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="" width="100%" id="MainImg" alt="Main Product Image">
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="" width="100%" class="small-img" alt="Product Image 1">
+                </div>
+                <div class="small-img-col">
+                    <img src="" width="100%" class="small-img" alt="Product Image 2">
+                </div>
+                <div class="small-img-col">
+                    <img src="" width="100%" class="small-img" alt="Product Image 3">
+                </div>
+                <div class="small-img-col">
+                    <img src="" width="100%" class="small-img" alt="Product Image 4">
+                </div>
+            </div>
+        </div>
+        <div class="single-pro-details">
+            <h6 id="breadcrumb">Home / T-Shirts</h6>
+            <h4 id="productName">Men's Fashion T Shirt</h4>
+            <h2 id="productPrice">$70.00</h2>
+            <select id="sizeSelect" title="Select Size">
+                <option value="" disabled selected>Select Size</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+            </select>
+            <input type="number" value="1" id="quantityInput" aria-label="Quantity">
+            <button class="normal" id="addToCartBtn">Add To Cart</button>
+            <h4>Product Details</h4>
+            <span id="productDescription">
+                Shoes are one of the most essential items in human life, combining both functionality and fashion. Originally created to protect our feet from rough terrain, sharp objects, and extreme temperatures, shoes have evolved into a major part of our personal style and culture.
+            </span>
+        </div>
+    </section>
+        <section id="product1" class="section-p1">
+            <h2>Featured Products</h2>
+            <p>Summer Collection New Modern Design</p>
+            <div class="pro-container">
+                <div class="pro">
+                    <img src="image/shoe (11).jpg" alt="">
+                    <div class="des">
+                        <span>Dragonity</span>
+                        <h5>Puma Green-Ghost</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$130.00</h4>
+                        <div class="cart">
+                            <a href="#" class="add-to-cart" data-name="Mens shoes" data-price="$70.00" data-image="image/shoe (11).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="pro">
+                        <img src="image/shoe (12).jpg" alt="">
+                        <div class="des">
+                            <span>Dragonity</span>
+                            <h5>Nike AIR Force-13</h5>
+                            <div class="star">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4>$170.00</h4>
+                            <div class="cart">
+                                <a href="cart.html"class="add-to-cart" data-name="Mens shoes" data-price="$70.00" data-image="image/shoe (1).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="pro">
+                            <img src="image/shoe (14).jpg" alt="">
+                            <div class="des">
+                                <span>Dragonity</span>
+                                <h5>Special-addition  Gray Shirt for men's</h5>
+                                <div class="star">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>$70.00</h4>
+                                <div class="cart">
+                                    <a href="cart.html"class="add-to-cart" data-name="Mens shoes" data-price="$70.00" data-image="image/shoe (14).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="pro">
+                                <img src="image/shoe (9).jpg" alt="">
+                                <div class="des">
+                                    <span>Dragonity</span>
+                                    <h5>Special-addition T-Shirt for men's </h5>
+                                    <div class="star">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <h4>$50.00</h4>
+                                    <div class="cart">
+                                        <a href="cart.html"class="add-to-cart" data-name="Mens shoes" data-price="$70.00" data-image="image/shoe (9).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                                    </div>
+                                </div>
+                                </div>
+                              
+    </section>
+    <section id="login" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span> special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="email" placeholder="Your E-mail address" aria-label="Email Address" required>
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+    <footer class="section-p1">
+        <div class="col">
+            <img src="dragon.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address: </strong>742 Evergreen Terrace, Springfield, USA</p>
+            <p><strong>Phone: </strong>+1 (123) 456-7890</p>
+            <p><strong>Hours: </strong>Mon-Fri: 9am - 6pm</p> 
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+    
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+    
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row" style="display: flex; justify-content: center; align-items: center;">
+                <a href="https://www.apple.com/app-store/" target="_blank">
+                    <img src="image/app.jpg" alt="App Store" style="margin-right: 10px;">
+                </a>
+                <a href="https://play.google.com/" target="_blank">
+                    <img src="image/play.jpg" alt="Google Play">
+                </a>
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="image/pay.png" alt="Payment Methods">
+        </div>
+    
+        <div class="copyright">
+            <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        var MainImg = document.getElementById("MainImg");
+        var smallimg = document.getElementsByClassName("small-img");
+    
+        smallimg[0].onclick = function() {
+            MainImg.src = smallimg[0].src;
+        }
+    
+        smallimg[1].onclick = function() {
+            MainImg.src = smallimg[1].src;
+        }
+    
+        smallimg[2].onclick = function() {
+            MainImg.src = smallimg[2].src;
+        }
+    
+        smallimg[3].onclick = function() {
+            MainImg.src = smallimg[3].src;
+        }
+    </script>
+
+    <script src="shopping.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        if (!loggedInUser) {
+            window.location.href = "signup.html";
+        }
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        const userNavItem = document.getElementById("user-nav-item");
+
+        if (loggedInUser) {
+            userNavItem.innerHTML = `
+                <span>Welcome, ${loggedInUser}</span> | <a href="#" id="logout-link">Logout</a>
+            `;
+
+            document.getElementById("logout-link").addEventListener("click", function (e) {
+                e.preventDefault();
+                localStorage.removeItem("loggedInUser");
+                window.location.href = "signup.html";
+            });
+        } else {
+            userNavItem.innerHTML = `<a href="signup.html">Sign Up / Login</a>`;
+        }
+    });
+</script>
+</body>
+</html>

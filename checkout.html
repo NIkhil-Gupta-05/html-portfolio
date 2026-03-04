@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checkout - Shopping Site</title>
+    <link rel="stylesheet" href="shopping.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <style>
+        /* Additional styles for checkout form */
+        #checkout-form {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            border: 1px solid #e8f6e8;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        #checkout-form h2 {
+            color: #088178;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        #checkout-form label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #2b2b2b;
+        }
+        #checkout-form input[type="text"],
+        #checkout-form input[type="email"],
+        #checkout-form input[type="tel"],
+        #checkout-form textarea,
+        #checkout-form select {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #e1e1e1;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        #checkout-form input[type="text"]:focus,
+        #checkout-form input[type="email"]:focus,
+        #checkout-form input[type="tel"]:focus,
+        #checkout-form textarea:focus,
+        #checkout-form select:focus {
+            border-color: #088178;
+        }
+        #checkout-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        #checkout-form button {
+            background-color: #088178;
+            color: #fff;
+            font-weight: 700;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #checkout-form button:hover {
+            background-color: #05614d;
+        }
+    </style>
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="image/dragon.png" alt="Logo" class="logo" style="width: 80px; height: 50px;" /></a>
+        <ul id="navbar">
+            <li><a href="shopping.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li id="user-nav-item"><a href="signup.html">Sign Up / Login</a></li>
+            <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart"></i></a></li>
+            <a href="#" id="close"><i class="fa fa-times"></i></a>
+        </ul>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <main>
+        <section id="order-summary" style="max-width: 600px; margin: 40px auto; padding: 20px; border: 1px solid #e8f6e8; background-color: #f9f9f9; border-radius: 8px;">
+            <h2>Order Summary</h2>
+            <table id="order-table" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th style="border-bottom: 1px solid #ddd; padding: 8px;">Image</th>
+                        <th style="border-bottom: 1px solid #ddd; padding: 8px;">Product</th>
+                        <th style="border-bottom: 1px solid #ddd; padding: 8px;">Price</th>
+                        <th style="border-bottom: 1px solid #ddd; padding: 8px;">Quantity</th>
+                        <th style="border-bottom: 1px solid #ddd; padding: 8px;">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody id="order-items">
+                    <!-- Order items will be populated here -->
+                </tbody>
+            </table>
+        <h3 style="text-align: right; margin-top: 10px;">Total: $<span id="order-total">0.00</span></h3>
+        </section>
+
+        <form id="checkout-form" action="#" method="post" style="max-width: 600px; margin: 40px auto; padding: 30px; border: 1px solid #e8f6e8; background-color: #fff; border-radius: 8px;">
+            <h2>Delivery Information</h2>
+
+            <label for="couponCode">Discount Coupon</label>
+            <input type="text" id="couponCode" name="couponCode" placeholder="Enter coupon code" style="width: 100%; padding: 12px 15px; margin-bottom: 10px; border: 1px solid #e1e1e1; border-radius: 4px; font-size: 14px;" />
+            <button type="button" id="applyCouponBtn" style="background-color: #088178; color: #fff; font-weight: 700; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-bottom: 20px;">Apply Coupon</button>
+            <p id="couponMessage" style="color: red; font-weight: 600; margin-bottom: 20px; display: none;"></p>
+
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" name="fullName" placeholder="Enter your full name" required />
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
+
+            <label for="address">Street Address</label>
+            <input type="text" id="address" name="address" placeholder="Enter your street address" required />
+
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" placeholder="Enter your city" required />
+
+            <label for="state">State / Province</label>
+            <input type="text" id="state" name="state" placeholder="Enter your state or province" required />
+
+            <label for="zip">Zip / Postal Code</label>
+            <input type="text" id="zip" name="zip" placeholder="Enter your zip or postal code" required />
+
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+                <option value="" disabled selected>Select your country</option>
+                <option value="USA">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="UK">United Kingdom</option>
+                <option value="Australia">Australia</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" placeholder="Any special instructions or notes"></textarea>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            const userNavItem = document.getElementById("user-nav-item");
+
+            if (loggedInUser) {
+                userNavItem.innerHTML = `
+                    <span>Welcome, ${loggedInUser}</span> | <a href="#" id="logout-link">Logout</a>
+                `;
+
+                document.getElementById("logout-link").addEventListener("click", function (e) {
+                    e.preventDefault();
+                    localStorage.removeItem("loggedInUser");
+                    window.location.href = "signup.html";
+                });
+            } else {
+                userNavItem.innerHTML = `<a href="signup.html">Sign Up / Login</a>`;
+            }
+
+            // Populate order summary from localStorage cart
+            let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+            const orderItemsContainer = document.getElementById("order-items");
+            const orderTotalElement = document.getElementById("order-total");
+            let totalAmount = 0;
+
+            cartItems.forEach(item => {
+                const subtotal = parseFloat(item.price.replace("$", "")) * item.quantity;
+                totalAmount += subtotal;
+
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td style="border-bottom: 1px solid #ddd; padding: 8px;"><img src="${item.image}" width="50"></td>
+                    <td style="border-bottom: 1px solid #ddd; padding: 8px;">${item.name}</td>
+                    <td style="border-bottom: 1px solid #ddd; padding: 8px;">${item.price}</td>
+                    <td style="border-bottom: 1px solid #ddd; padding: 8px;">${item.quantity}</td>
+                    <td style="border-bottom: 1px solid #ddd; padding: 8px;">$${subtotal.toFixed(2)}</td>
+                `;
+                orderItemsContainer.appendChild(row);
+            });
+
+            orderTotalElement.textContent = totalAmount.toFixed(2);
+
+            // Optional: handle form submission
+            document.getElementById("checkout-form").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                // Gather delivery info
+                const fullName = document.getElementById("full-name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const phone = document.getElementById("phone").value.trim();
+                const address = document.getElementById("address").value.trim();
+                const city = document.getElementById("city").value.trim();
+                const state = document.getElementById("state").value.trim();
+                const zip = document.getElementById("zip").value.trim();
+                const country = document.getElementById("country").value;
+                const notes = document.getElementById("notes").value.trim();
+
+                if (!fullName || !email || !phone || !address || !city || !state || !zip || !country) {
+                    alert("Please fill in all required delivery information.");
+                    return;
+                }
+
+                // Create order object
+                let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+                // Create order items from cart
+                let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+                if (cartItems.length === 0) {
+                    alert("Your cart is empty.");
+                    return;
+                }
+
+                const newOrderId = orders.length > 0 ? orders[orders.length - 1].id + 1 : 1;
+
+                cartItems.forEach(item => {
+                    orders.push({
+                        id: newOrderId,
+                        customer: fullName,
+                        product: item.name,
+                        quantity: item.quantity,
+                        status: "Pending",
+                        email: email,
+                        phone: phone,
+                        address: address,
+                        city: city,
+                        state: state,
+                        zip: zip,
+                        country: country,
+                        notes: notes
+                    });
+                });
+
+                // Save orders to localStorage
+                localStorage.setItem("orders", JSON.stringify(orders));
+
+                alert("Delivery information received. Proceeding to payment.");
+                window.location.href = "payment.html"; // Redirect to payment page
+            });
+        });
+
+        // Coupon application logic
+        document.getElementById("applyCouponBtn").addEventListener("click", () => {
+            const couponInput = document.getElementById("couponCode");
+            const couponMessage = document.getElementById("couponMessage");
+            const orderTotalElement = document.getElementById("order-total");
+
+            let coupons = JSON.parse(localStorage.getItem("coupons")) || [];
+            const enteredCode = couponInput.value.trim();
+
+            if (!enteredCode) {
+                couponMessage.style.color = "red";
+                couponMessage.textContent = "Please enter a coupon code.";
+                couponMessage.style.display = "block";
+                return;
+            }
+
+            const coupon = coupons.find(c => c.code.toLowerCase() === enteredCode.toLowerCase());
+
+            if (!coupon) {
+                couponMessage.style.color = "red";
+                couponMessage.textContent = "Invalid coupon code.";
+                couponMessage.style.display = "block";
+                return;
+            }
+
+            const today = new Date();
+            const expiryDate = new Date(coupon.expiry);
+
+            if (expiryDate < today) {
+                couponMessage.style.color = "red";
+                couponMessage.textContent = "This coupon has expired.";
+                couponMessage.style.display = "block";
+                return;
+            }
+
+            // Apply discount
+            let currentTotal = parseFloat(orderTotalElement.textContent);
+            let discountAmount = (currentTotal * coupon.discount) / 100;
+            let newTotal = currentTotal - discountAmount;
+
+            orderTotalElement.textContent = newTotal.toFixed(2);
+            couponMessage.style.color = "green";
+            couponMessage.textContent = `Coupon applied! You saved $${discountAmount.toFixed(2)}.`;
+            couponMessage.style.display = "block";
+
+            // Disable coupon input and button after successful application
+            couponInput.disabled = true;
+            document.getElementById("applyCouponBtn").disabled = true;
+        });
+    </script>
+</body>
+</html>

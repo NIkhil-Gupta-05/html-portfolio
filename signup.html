@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up / Login</title>
+    <link rel="stylesheet" href="shopping.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: #FFF7D1; /* Navbar background color from shopping.css */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        #login-section {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        #login-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #login-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        #login-section input[type="text"],
+        #login-section input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #login-section button {
+            width: 100%;
+            padding: 10px;
+            background-color: #088178; /* Main button color */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        #login-section button:hover {
+            background-color: #066a5a; /* Darker shade for hover */
+        }
+        #welcome-message {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #logout-btn {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #logout-btn:hover {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <section id="login-section" style="text-align: center;">
+        <div id="choiceButtons" style="margin-bottom: 20px;">
+            <button id="chooseUser" style="padding: 10px 30px; margin-right: 20px; cursor: pointer; background-color: #088178; color: white; border: none; border-radius: 4px;">User</button>
+            <button id="chooseAdmin" style="padding: 10px 30px; cursor: pointer; background-color: #ccc; color: black; border: none; border-radius: 4px;">Admin</button>
+        </div>
+        <div id="userLoginForm" style="display:none;">
+            <h2>Sign Up / Login</h2>
+            <div id="welcome-message" style="display:none;"></div>
+            <form id="login-form">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required />
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required />
+                <button type="submit">Login</button>
+            </form>
+            <button id="logout-btn" style="display:none;">Logout</button>
+            <button id="backToChoiceFromUser" style="margin-top: 10px;">Back</button>
+        </div>
+        <div id="adminLoginForm" style="display:none;">
+            <h2>Admin Login</h2>
+            <form id="admin-login-form">
+                <label for="admin-username">Admin Username</label>
+                <input type="text" id="admin-username" name="admin-username" required />
+                <label for="admin-password">Admin Password</label>
+                <input type="password" id="admin-password" name="admin-password" required />
+                <button type="submit">Admin Login</button>
+            </form>
+            <button id="admin-logout-btn" style="display:none; margin-top: 10px;">Logout</button>
+            <div id="admin-panel" style="display:none; margin-top: 20px;">
+                <h3>Product List</h3>
+                <ul id="product-list" style="list-style: none; padding-left: 0;"></ul>
+            </div>
+            <button id="backToChoiceFromAdmin" style="margin-top: 10px;">Back</button>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const choiceButtonsDiv = document.getElementById("choiceButtons");
+            const userLoginFormDiv = document.getElementById("userLoginForm");
+            const adminLoginFormDiv = document.getElementById("adminLoginForm");
+            const chooseUserBtn = document.getElementById("chooseUser");
+            const chooseAdminBtn = document.getElementById("chooseAdmin");
+            const backToChoiceFromUserBtn = document.getElementById("backToChoiceFromUser");
+            const backToChoiceFromAdminBtn = document.getElementById("backToChoiceFromAdmin");
+
+            const loginForm = document.getElementById("login-form");
+            const welcomeMessage = document.getElementById("welcome-message");
+            const logoutBtn = document.getElementById("logout-btn");
+
+            const adminLoginForm = document.getElementById("admin-login-form");
+            const adminLogoutBtn = document.getElementById("admin-logout-btn");
+            const adminPanel = document.getElementById("admin-panel");
+            const productList = document.getElementById("product-list");
+
+            // Sample product data for admin panel
+            const products = [
+                { name: "NIKE Blue-Ghost", price: "$30.00" },
+                { name: "Nike AIR Force-13", price: "$170.00" },
+                { name: "Special-addition Adidas samba", price: "$70.00" },
+                { name: "PUMA Special-addition", price: "$50.00" }
+            ];
+
+            // Initial state: show choice buttons only
+            choiceButtonsDiv.style.display = "block";
+            userLoginFormDiv.style.display = "none";
+            adminLoginFormDiv.style.display = "none";
+
+            // Show user login form
+            chooseUserBtn.addEventListener("click", function () {
+                choiceButtonsDiv.style.display = "none";
+                userLoginFormDiv.style.display = "block";
+                adminLoginFormDiv.style.display = "none";
+            });
+
+            // Show admin login form
+            chooseAdminBtn.addEventListener("click", function () {
+                choiceButtonsDiv.style.display = "none";
+                userLoginFormDiv.style.display = "none";
+                adminLoginFormDiv.style.display = "block";
+            });
+
+            // Back buttons to choice screen
+            backToChoiceFromUserBtn.addEventListener("click", function () {
+                userLoginFormDiv.style.display = "none";
+                choiceButtonsDiv.style.display = "block";
+            });
+
+            backToChoiceFromAdminBtn.addEventListener("click", function () {
+                adminLoginFormDiv.style.display = "none";
+                choiceButtonsDiv.style.display = "block";
+                adminLogoutBtn.style.display = "none";
+                adminPanel.style.display = "none";
+                adminLoginForm.reset();
+            });
+
+            function showLoggedIn(username) {
+                loginForm.style.display = "none";
+                welcomeMessage.style.display = "block";
+                welcomeMessage.textContent = `Welcome, ${username}!`;
+                logoutBtn.style.display = "block";
+            }
+
+            function showLoggedOut() {
+                loginForm.style.display = "block";
+                welcomeMessage.style.display = "none";
+                logoutBtn.style.display = "none";
+            }
+
+            // Check if user is logged in
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            if (loggedInUser) {
+                // Redirect to shopping page if already logged in
+                window.location.href = "shopping.html";
+                showLoggedIn(loggedInUser);
+            } else {
+                showLoggedOut();
+            }
+
+            loginForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const username = document.getElementById("username").value.trim();
+                const password = document.getElementById("password").value.trim();
+
+                // Simple validation (in real app, validate on server)
+                if (username && password) {
+                    // Save logged in user to localStorage
+                    localStorage.setItem("loggedInUser", username);
+                    showLoggedIn(username);
+                    // Redirect to shopping page after login
+                    window.location.href = "shopping.html";
+                } else {
+                    alert("Please enter username and password.");
+                }
+            });
+
+            logoutBtn.addEventListener("click", function () {
+                localStorage.removeItem("loggedInUser");
+                showLoggedOut();
+            });
+
+            // Admin login form submit
+            adminLoginForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+                // Accept any admin username and password
+                window.location.href = "admin.html";
+            });
+
+            // Admin logout
+            adminLogoutBtn.addEventListener("click", function () {
+                adminLoginForm.style.display = "block";
+                adminLogoutBtn.style.display = "none";
+                adminPanel.style.display = "none";
+                adminLoginForm.reset();
+            });
+
+            // Display products in admin panel
+            function displayProducts() {
+                productList.innerHTML = "";
+                products.forEach(product => {
+                    const li = document.createElement("li");
+                    li.textContent = `${product.name} - ${product.price}`;
+                    productList.appendChild(li);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Site</title>
+    <link rel="stylesheet" href="shopping.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="image/dragon.png" alt="Logo" class="logo" style="width: 80px; height: 50px;"></a>
+        <ul id="navbar">
+            <li><a class="active" href="shopping.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li id="user-nav-item"><a href="signup.html">Sign Up / Login</a></li>
+            <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart"></i><span id="cart-count" class="cart-count">0</span></a></li>
+            <a href="#" id="close"><i class="fa fa-times"></i></a>
+        </ul>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    <section id="hero">
+        <h4>Trade-in-offer</h4>
+        <h2>Super value deals</h2>
+        <h1>On all products</h1>
+        <p>Save more with coupons & upto 70% off!</p>
+        <button>Shop Now</button>
+    </section>
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <img src="image/f1.png" alt="Free Shipping Icon">
+            <h6>Free shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="image/f2.png" alt="Online Order Icon">
+            <h6>Online Order</h6>
+        </div>
+        <div class="fe-box">
+            <img src="image/f3.png" alt="Save Money Icon">
+            <h6>Save Money</h6>
+        </div>
+        <div class="fe-box">
+            <img src="image/f4.png" alt="Promotions Icon">
+            <h6>Promotions</h6>
+        </div>
+        <div class="fe-box">
+            <img src="image/f5.png" alt="Happy Sell Icon">
+            <h6>Happy Sell</h6>
+        </div>
+        <div class="fe-box">
+            <img src="image/f6.png" alt="24/7 Support Icon">
+            <h6>24/7 Support</h6>
+        </div>
+    </section>
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Summer Collection New Modern Design</p>
+        <div class="pro-container">
+            <div class="pro" onclick="selectProduct('NIKE Blue-Ghost', '$30.00', 'image/shoe (1).jpg')">
+                <img src="image/shoe (1).jpg" alt="">
+                <div class="des">
+                    <span>Dragonity</span>
+                    <h5>NIKE Blue-Ghost</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$30.00</h4>
+                    <div class="cart">
+                        <a href="#" class="add-to-cart" data-name="NIKE Blue-Ghost" data-price="$30.00" data-image="image/shoe (1).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                    </div>
+                </div>
+                </div>
+                <div class="pro">
+                    <img src="image/shoe (2).jpg" alt="">
+                    <div class="des">
+                        <span>Dragonity</span>
+                        <h5>Nike AIR Force-13</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$170.00</h4>
+                    <div class="cart">
+                        <a href="#" class="add-to-cart" data-name="Nike AIR Force-13" data-price="$170.00" data-image="image/shoe (2).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="pro">
+                        <img src="image/shoe (3).jpg" alt="">
+                        <div class="des">
+                            <span>Dragonity</span>
+                            <h5>Special-addition  Adidas samba</h5>
+                            <div class="star">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4>$70.00</h4>
+                    <div class="cart">
+                        <a href="#" class="add-to-cart" data-name="Special-addition Adidas samba" data-price="$70.00" data-image="image/shoe (3).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                    </div>
+                        </div>
+                        </div>
+                        <div class="pro">
+                            <img src="image/shoe (4).jpg" alt="">
+                            <div class="des">
+                                <span>Dragonity</span>
+                                <h5>PUMA Special-addition</h5>
+                                <div class="star">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>$50.00</h4>
+                    <div class="cart">
+                        <a href="#" class="add-to-cart" data-name="PUMA Special-addition" data-price="$50.00" data-image="image/shoe (4).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                    </div>
+                            </div>
+                            </div>
+                            <div class="pro">
+                                <img src="image/shoe (5).jpg" alt="">
+                                <div class="des">
+                                    <span>Dragonity</span>
+                                    <h5>Adidas special</h5>
+                                    <div class="star">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <h4>$100.00</h4>
+                    <div class="cart">
+                        <a href="#" class="add-to-cart" data-name="Adidas special" data-price="$100.00" data-image="image/shoe (5).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                    </div>
+                                </div>
+                                </div>
+                                <div class="pro">
+                                    <img src="image/shoe (6).jpg" alt="">
+                                    <div class="des">
+                                        <span>Dragonity</span>
+                                        <h5>NIKE Air-force 12</h5>
+                                        <div class="star">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <h4>$170.00</h4>
+                    <div class="cart">
+                        <a href="#" class="add-to-cart" data-name="NIKE Air-force 12" data-price="$170.00" data-image="image/shoe (6).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                    </div>
+                                    </div>
+                                    </div>
+                                    <div class="pro">
+                                        <img src="image/shoe (7).jpg" alt="">
+                                        <div class="des">
+                                            <span>Dragonity</span>
+                                            <h5>Special-addition </h5>
+                                            <div class="star">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <h4>$20.00</h4>
+                    <div class="cart">
+                        <a href="#" class="add-to-cart" data-name="Special-addition" data-price="$20.00" data-image="image/shoe (7).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                    </div>
+                                        </div>
+                                        </div>
+                                        <div class="pro">
+                                            <img src="image/shoe (8).jpg" alt="">
+                                            <div class="des">
+                                                <span>Dragonity</span>
+                                                <h5>Special-addition </h5>
+                                                <div class="star">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <h4>$30.00</h4>
+                    <div class="cart">
+                        <a href="#" class="add-to-cart" data-name="Special-addition" data-price="$30.00" data-image="image/shoe (8).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                    </div>
+                                            </div>
+                                            </div>
+        </div>
+    </section>
+    <section id="banner" class="section-m1">
+        <h4>Repair Services</h4>
+        <h2>Up to<span> 70% off</span>-All New Collection</h2>
+        <button class="normal">Explore More</button>
+    </section>
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Summer Collection New Modern Design</p>
+        <div class="pro-container" onclick="window.location.href='spro.html';">
+            <div class="pro">
+                <img src="image/shoe (16).jpg" alt="">
+                <div class="des">
+                    <span>Dragonity</span>
+                    <h5>Special-addition Chelsea Boots</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$50.00</h4>
+                    <div class="cart">
+                        <a href="#" class="add-to-cart" data-name="Special-addition Chelsea Boots" data-price="$50.00" data-image="image/shoe (16).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                    </div>
+                </div>
+                </div>
+                <div class="pro">
+                    <img src="image/shoe (9).jpg" alt="">
+                    <div class="des">
+                        <span>Dragonity</span>
+                        <h5>NIKE shoe for men</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$40.00</h4>
+                        <div class="cart">
+                            <a href="#" class="add-to-cart" data-name="NIKE shoe for men" data-price="$40.00" data-image="image/shoe (9).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="pro">
+                        <img src="image/shoe (10).jpg" alt="">
+                        <div class="des">
+                            <span>Dragonity</span>
+                            <h5>Special-addition </h5>
+                            <div class="star">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4>$40.00</h4>
+                            <div class="cart">
+                                <a href="#" class="add-to-cart" data-name="NIKE shoe for men" data-price="$40.00" data-image="image/shoe (10).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="pro">
+                            <img src="image/shoe (11).jpg" alt="">
+                            <div class="des">
+                                <span>Dragonity</span>
+                                <h5>Air-force 15</h5>
+                                <div class="star">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>$40.00</h4>
+                                <div class="cart">
+                                    <a href="#" class="add-to-cart" data-name="NIKE shoe for men" data-price="$40.00" data-image="image/shoe (11).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="pro">
+                                <img src="image/shoe (12).jpg "alt="">
+                                <div class="des">
+                                    <span>Dragonity</span>
+                                    <h5> VENUS unisex shoe</h5>
+                                    <div class="star">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <h4>$70.00</h4>
+                                    <div class="cart">
+                                        <a href="#" class="add-to-cart" data-name="NIKE shoe for men" data-price="$70.00" data-image="image/shoe (12).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="pro">
+                                    <img src="image/shoe (13).jpg" alt="">
+                                    <div class="des">
+                                        <span>Dragonity</span>
+                                        <h5>PUMA unisex</h5>
+                                        <div class="star">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <h4>$59.00</h4>
+                                        <div class="cart">
+                                            <a href="#" class="add-to-cart" data-name="NIKE shoe for men" data-price="$59.00" data-image="image/shoe (13).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="pro">
+                                        <img src="image/shoe (14).jpg" alt="">
+                                        <div class="des">
+                                            <span>Dragonity</span>
+                                            <h5>AIR-Force 13</h5>
+                                            <div class="star">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <h4>$70.00</h4>
+                                            <div class="cart">
+                                                <a href="#" class="add-to-cart" data-name="NIKE shoe for men" data-price="$70.00" data-image="image/shoe (14).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="pro">
+                                            <img src="image/shoe (15).jpg" alt="">
+                                            <div class="des">
+                                                <span>Dragonity</span>
+                                                <h5>NIKE SPORT shoe</h5>
+                                                <div class="star">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <h4>$70.00</h4>
+                                                <div class="cart">
+                                                    <a href="#" class="add-to-cart" data-name="NIKE shoe for men" data-price="$70.00" data-image="image/shoe (15).jpg"><i class="fa fa-shopping-cart"></i> </a>
+                                                </div>
+                                            </div>
+                                            </div>
+        </div>
+    </section>
+    <section id="sm-banner" class="section-p1">
+        <div class="banner-box">
+            <h4>Crazy Deals</h4>
+            <h2>buy 1 get 1 free</h2>
+            <span>The best classic shoes is on sale at Dragonity</span>
+            <button class="white">Learn More</button>
+        </div>
+        <div class="banner-box banner-box2">
+            <h4>Spring/Summer</h4>
+            <h2>Upcomming season</h2>
+            <span>The best classic Shoes is on sale at Dragonity</span>
+            <button class="white">Collection </button>
+        </div>
+    </section>
+    <section id="banner-3" >
+        <div class="banner-box ">
+            <h2>SEASONAL SALE</h2>
+            <h3>Winter Collectio 50% OFF</h3>
+        </div>
+        <div class="banner-box banner-box2">
+            <h2>NEW FOOTWARE COLLECTION</h2>
+            <h3>Spring/Summer 2025</h3>
+        </div>
+        <div class="banner-box banner-box3 ">
+            <h2>T-SHIRT</h2>
+            <h3>New Trendy Prints</h3>
+        </div>
+    </section>
+   
+    <footer class="section-p1">
+        <div class="col">
+            <img src="dragon.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address: </strong>742 Evergreen Terrace, Springfield, USA</p>
+            <p><strong>Phone: </strong>+1 (123) 456-7890</p>
+            <p><strong>Hours: </strong>Mon-Fri: 9am - 6pm</p> 
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+    
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+    
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row" style="display: flex; justify-content: center; align-items: center;">
+                <a href="https://www.apple.com/app-store/" target="_blank">
+                    <img src="image/app.jpg" alt="image/App Store" style="margin-right: 10px;">
+                </a>
+                <a href="https://play.google.com/" target="_blank">
+                    <img src="image/play.jpg" alt="image/Google Play">
+                </a>
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="image/pay.png" alt="Payment Methods">
+        </div>
+    
+        <div class="copyright">
+            <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="shopping.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        if (!loggedInUser) {
+            window.location.href = "signup.html";
+        }
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        const userNavItem = document.getElementById("user-nav-item");
+
+        if (loggedInUser) {
+            userNavItem.innerHTML = `
+                <span>Welcome, ${loggedInUser}</span> | <a href="#" id="logout-link">Logout</a>
+            `;
+
+            document.getElementById("logout-link").addEventListener("click", function (e) {
+                e.preventDefault();
+                localStorage.removeItem("loggedInUser");
+                window.location.href = "signup.html";
+            });
+        } else {
+            userNavItem.innerHTML = `<a href="signup.html">Sign Up / Login</a>`;
+        }
+    });
+</script>
+</body>
+</html>

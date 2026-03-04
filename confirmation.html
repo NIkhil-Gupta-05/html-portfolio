@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Order Confirmation - Shopping Site</title>
+    <link rel="stylesheet" href="shopping.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <style>
+        #confirmation {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            border: 1px solid #e8f6e8;
+            background-color: #fff;
+            border-radius: 8px;
+            text-align: center;
+        }
+        #confirmation h2 {
+            color: #088178;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        #confirmation p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        #order-details {
+            text-align: left;
+            margin-top: 20px;
+        }
+        #order-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #order-details th, #order-details td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        #order-details th {
+            background-color: #f2f2f2;
+        }
+        #thankyou-note {
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #088178;
+        }
+    </style>
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="image/dragon.png" alt="Logo" class="logo" style="width: 80px; height: 50px;" /></a>
+        <ul id="navbar">
+            <li><a href="shopping.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li id="user-nav-item"><a href="signup.html">Sign Up / Login</a></li>
+            <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart"></i></a></li>
+        </ul>
+    </section>
+
+    <main>
+        <section id="confirmation">
+            <h2>Order Confirmation</h2>
+            <p>Your order has been successfully placed!</p>
+            <div id="order-details">
+                <h3>Order Details</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="order-items">
+                        <!-- Order items will be populated here -->
+                    </tbody>
+                </table>
+                <h3 style="text-align: right; margin-top: 10px;">Total: $<span id="order-total">0.00</span></h3>
+            </div>
+            <div id="thankyou-note">Thank you for shopping with us!</div>
+            <button onclick="window.location.href='shopping.html'" style="margin-top: 20px; padding: 10px 20px; background-color: #088178; color: white; border: none; border-radius: 4px; cursor: pointer;">Continue Shopping</button>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            const userNavItem = document.getElementById("user-nav-item");
+
+            if (loggedInUser) {
+                userNavItem.innerHTML = `
+                    <span>Welcome, ${loggedInUser}</span> | <a href="#" id="logout-link">Logout</a>
+                `;
+
+                document.getElementById("logout-link").addEventListener("click", function (e) {
+                    e.preventDefault();
+                    localStorage.removeItem("loggedInUser");
+                    window.location.href = "signup.html";
+                });
+            } else {
+                userNavItem.innerHTML = `<a href="signup.html">Sign Up / Login</a>`;
+            }
+
+            // Populate order details from localStorage cart
+            let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+            const orderItemsContainer = document.getElementById("order-items");
+            const orderTotalElement = document.getElementById("order-total");
+            let totalAmount = 0;
+
+            cartItems.forEach(item => {
+                const subtotal = parseFloat(item.price.replace("$", "")) * item.quantity;
+                totalAmount += subtotal;
+
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td>${item.price}</td>
+                    <td>$${subtotal.toFixed(2)}</td>
+                `;
+                orderItemsContainer.appendChild(row);
+            });
+
+            orderTotalElement.textContent = totalAmount.toFixed(2);
+
+            // Clear cart after displaying confirmation
+            localStorage.removeItem("cart");
+        });
+    </script>
+</body>
+</html>
