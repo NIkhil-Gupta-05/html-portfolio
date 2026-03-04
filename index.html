@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!-- 
+    Hotel Website - The Cave Hotel
+    This is a modern hotel website featuring navigation, hero section,
+    services, content grid, login form, and footer.
+-->
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cave Hotel - Luxury Accommodation</title>
+    
+    <!-- External CSS file for custom styles -->
+    <link href="style.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Preconnect for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Importing custom fonts: Caveat (decorative), Dosis (body), Roboto Mono (headings) -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dosis:wght@200..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS from CDN for responsive grid and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    
+    <!-- Bootstrap 5 JavaScript Bundle (includes Popper) for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- ============================================ -->
+    <!-- SECTION 1: NAVIGATION BAR                   -->
+    <!-- ============================================ -->
+    <!-- Main navigation menu with logo, links, search, and login -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <!-- Hotel Logo/Brand Name -->
+            <div class="brand">
+                <a href="#" class="brand-name">The Cave Hotel</a>
+            </div>
+            
+            <!-- Main navigation links -->
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active">Home</a></li>
+                <li><a href="#" class="nav-link">About Us</a></li>
+                <li><a href="#" class="nav-link">Contact Us</a></li>
+                <li><a href="#" class="nav-link">Location</a></li>
+            </ul>
+            
+            <!-- Search input and Login button -->
+            <div class="nav-actions">
+                <input type="text" placeholder="Search rooms..." class="search-input">
+                <a href="#login" class="btn-login">Login / Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: HERO SECTION                     -->
+    <!-- ============================================ -->
+    <!-- Full-width hero image with overlay text and CTA button -->
+    <header class="hero-section">
+        <!-- Background header image -->
+        <img src="./image/cave.webp" class="hero-image" alt="Cave Hotel Exterior">
+        
+        <!-- Overlay content: Title, tagline, and booking button -->
+        <div class="hero-content">
+            <h1 class="hero-title">The Cave Hotel</h1>
+            <p class="hero-tagline">Experience luxury carved into nature</p>
+            <button class="btn-book">Book Your Stay</button>
+        </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: FEATURES/SERVICES                -->
+    <!-- ============================================ -->
+    <!-- Three-column layout showcasing hotel amenities -->
+    <section class="features-section">
+        <h2 class="section-title">Our Luxury Amenities</h2>
+        
+        <div class="features-container">
+            <!-- Feature 1: Luxurious Rooms -->
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <img src="./image/hotel room.webp" class="feature-image" alt="Luxurious Hotel Room">
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Luxurious Rooms</h3>
+                    <p class="feature-description">
+                        Experience refined luxury in our spacious premium room, featuring a king-size bed, 
+                        seating area, smart TV, minibar, and stunning city views.
+                    </p>
+                    <a href="#" class="feature-link">View Rooms →</a>
+                </div>
+            </div>
+
+            <!-- Feature 2: Fine Dining -->
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <img src="./image/catering-food-29643251.webp" class="feature-image" alt="Fine Dining">
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Fine Dining</h3>
+                    <p class="feature-description">
+                        Enjoy delicious meals at our on-site restaurant, featuring fresh ingredients, 
+                        a daily breakfast buffet, and a variety of local and international dishes.
+                    </p>
+                    <a href="#" class="feature-link">View Menu →</a>
+                </div>
+            </div>
+
+            <!-- Feature 3: Swimming Pool -->
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <img src="./image/beach-hotel-resort-swimming-pool-11165387.jpg" class="feature-image" alt="Swimming Pool">
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Swimming Pool</h3>
+                    <p class="feature-description">
+                        Take a refreshing dip in our clean and relaxing swimming pool, perfect for 
+                        unwinding and enjoying your stay in complete tranquility.
+                    </p>
+                    <a href="#" class="feature-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: CONTENT GRID                     -->
+    <!-- ============================================ -->
+    <!-- Grid layout showcasing hotel story and highlights -->
+    <section class="content-section">
+        <div class="content-grid">
+            <!-- Image Card 1 -->
+            <div class="content-card image-card">
+                <img src="./image/caves-in-dapoli-slider.webp" alt="Cave View" class="content-image">
+            </div>
+            
+            <!-- Text Card 1 - Our Story -->
+            <div class="content-card text-card">
+                <h3 class="content-title">Our Story</h3>
+                <p class="content-text">
+                    Nestled in the heart of nature, The Cave Hotel offers a unique blend of 
+                    modern luxury and natural beauty. Our accommodations are designed to provide 
+                    the ultimate relaxation experience while preserving the rustic charm of cave living.
+                </p>
+                <p class="content-text">
+                    Every room is crafted with attention to detail, ensuring our guests have 
+                    an unforgettable stay filled with comfort and adventure.
+                </p>
+            </div>
+            
+            <!-- Text Card 2 - Guest Reviews -->
+            <div class="content-card text-card">
+                <h3 class="content-title">Guest Experiences</h3>
+                <p class="content-text">
+                    Our guests consistently praise the exceptional service, breathtaking views, 
+                    and peaceful atmosphere that makes The Cave Hotel a premier destination 
+                    for travelers seeking both relaxation and adventure.
+                </p>
+                <a href="#" class="btn-read-more">Read More Reviews</a>
+            </div>
+            
+            <!-- Image Card 2 -->
+            <div class="content-card image-card">
+                <img src="./image/hotel room.webp" alt="Hotel Room Interior" class="content-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: LOGIN FORM                        -->
+    <!-- ============================================ -->
+    <!-- Bootstrap-styled login/sign-in form -->
+    <section id="login" class="login-section">
+        <div class="login-container">
+            <form class="login-form">
+                <h2 class="form-title">Welcome Back</h2>
+                <p class="form-subtitle">Sign in to access your account</p>
+                
+                <!-- Email input field -->
+                <div class="form-group">
+                    <input type="email" class="form-input" id="floatingInput" placeholder="name@example.com" required>
+                    <label for="floatingInput" class="form-label">Email Address</label>
+                </div>
+                
+                <!-- Password input field -->
+                <div class="form-group">
+                    <input type="password" class="form-input" id="floatingPassword" placeholder="Password" required>
+                    <label for="floatingPassword" class="form-label">Password</label>
+                </div>
+                
+                <!-- Remember me checkbox -->
+                <div class="form-check-wrapper">
+                    <input class="form-check-input" type="checkbox" value="remember-me" id="checkDefault">
+                    <label class="form-check-label" for="checkDefault">Remember me</label>
+                </div>
+                
+                <!-- Submit button -->
+                <button type="submit" class="btn-submit">Sign In</button>
+                
+                <!-- Additional links -->
+                <p class="form-footer">
+                    Don't have an account? <a href="#">Sign up</a>
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 6: FOOTER                           -->
+    <!-- ============================================ -->
+    <!-- Site footer with navigation links and branding -->
+    <footer class="site-footer">
+        <!-- Footer background image -->
+        <div class="footer-background">
+            <img src="./image/cave.webp" class="footer-image" alt="Footer Background">
+        </div>
+        
+        <!-- Footer content overlay -->
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3 class="footer-logo">The Cave Hotel</h3>
+                <p class="footer-tagline">Your sanctuary in nature</p>
+            </div>
+            
+            <!-- Footer navigation links -->
+            <nav class="footer-nav">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Location</a></li>
+                    <li><a href="#">Login / Sign Up</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Footer contact info -->
+            <div class="footer-contact">
+                <h4 class="footer-heading">Contact Us</h4>
+                <p>📍 123 Cave Street, Nature City</p>
+                <p>📞 +1 (555) 123-4567</p>
+                <p>✉️ info@cavehotel.com</p>
+            </div>
+        </div>
+        
+        <!-- Copyright notice -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 The Cave Hotel. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
